@@ -12,6 +12,5 @@ Ter um Dash não só bonito no desktop como também funcional e que acima de tud
 #### Compilado com Qt 4.8.6
 
 ### Site
-
 www.jeanrl.com.br/cdash
 
