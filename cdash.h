@@ -21,7 +21,6 @@
 #define CDASH_H
 
 #include <QWidget>
-#include "dash.h"
 #include "configdash.h"
 #include "relogio/wrelogio.h"
 #include "cronometro/widget.h"
