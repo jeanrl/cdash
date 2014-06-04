@@ -1,0 +1,15 @@
+<RCC>
+    <qresource prefix="/">
+        <file>imagens/brasil_flag.png</file>
+        <file>imagens/eua_flag.png</file>
+        <file>imagens/filipeta.png</file>
+        <file>imagens/fundo.png</file>
+        <file>imagens/ok.png</file>
+        <file>imagens/cancel.png</file>
+        <file>imagens/esp_flag.png</file>
+        <file>imagens/fundo_branco.png</file>
+        <file>imagens/logo3.png</file>
+        <file>imagens/claudia2.png</file>
+        <file>imagens/sair.png</file>
+    </qresource>
+</RCC>

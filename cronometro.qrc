@@ -1,0 +1,22 @@
+<RCC>
+    <qresource prefix="/">
+        <file>cronometro/imagens/cronometro.png</file>
+        <file>cronometro/imagens/ok.png</file>
+        <file>cronometro/imagens/pause.png</file>
+        <file>cronometro/imagens/play.png</file>
+        <file>cronometro/imagens/sair.png</file>
+        <file>cronometro/imagens/som_notif.png</file>
+        <file>cronometro/imagens/stop.png</file>
+        <file>cronometro/imagens/fundo3.png</file>
+        <file>cronometro/imagens/config.png</file>
+        <file>cronometro/imagens/cancelar.png</file>
+        <file>cronometro/imagens/balao_pontas_verde.png</file>
+        <file>cronometro/imagens/nuvem_final.png</file>
+        <file>cronometro/imagens/nuvem_final_branca.png</file>
+        <file>cronometro/imagens/nuvem_dissipando.png</file>
+    </qresource>
+    <qresource prefix="/audio">
+        <file>cronometro/balao.ogg</file>
+        <file>cronometro/balao.wav</file>
+    </qresource>
+</RCC>
