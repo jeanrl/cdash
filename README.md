@@ -1,15 +1,15 @@
 Cláudia Dash
 =============
 
-Dash feito para adicionar recursos principalmente para sistemas mais compactos como XFCE, LXED, etc.
+Dash made ​​to add features mainly to more compact systems like XFCE, LXED, etc.. 
 
-Roda em sistemas robustos também como o KDE e Gnome.
+Robust systems also runs on KDE and Gnome like.
 
-## Motivativação
+## Motivation
 
-Ter um Dash não só bonito no desktop como também funcional e que acima de tudo aumentasse a produtividade.
+Have a Dash not only beautiful but also functional on the desktop and above all to increase productivity.
 
-#### Compilado com Qt 4.8.6
+#### Make with Qt 4.8.6
 
 ### Site
 www.jeanrl.com.br/cdash
