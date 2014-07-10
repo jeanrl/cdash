@@ -14,3 +14,12 @@ Have a Dash not only beautiful but also functional on the desktop and above all 
 ## Site
 www.jeanrl.com.br/cdash
 
+
+##Release Alpha Version 0.01
+####07/10/2014
+
+add Favorites
+add filipeta
+
+removed bug desktop space
+
