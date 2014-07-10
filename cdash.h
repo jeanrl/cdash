@@ -16,15 +16,19 @@
 *    You should have received a copy of the GNU General Public License
 *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ***************************************************************************/
-
 #ifndef CDASH_H
 #define CDASH_H
 
 #include <QWidget>
+#include <QDBusServiceWatcher>
+#include <QDBusInterface>
+
 #include "configdash.h"
+#include "filipeta.h"
+#include "jbotao.h"
 #include "relogio/wrelogio.h"
 #include "cronometro/widget.h"
-
+#include "favoritos/favoritos.h"
 
 namespace Ui {
 class Widget;
@@ -37,15 +41,21 @@ class CDash : public QWidget
 public:
     explicit CDash(QWidget *parent = 0);
     ~CDash();
-    int tempConfig = 0;
     bool vsvFilipeta = false;
     void animFilipeta();
-    void mataFilipeta();
+    bool startFPT;
+    bool startKill;
 
 private:
-    QWidget *flpConfig;
-    QTimer *tmFilipeta;
+    jbotao *jbtn;
+    QTimer *tmMataFilipeta;
     QPixmap bg;
+    filipeta *m_filipeta;
+    QDBusInterface      *m_interf;
+    QDBusInterface      *m_interfProp;
+    QDBusServiceWatcher *m_watcher;
+    QWidget *m_message;
+    void ligaInterf();
     void createCDWindow();
     void createFP();
 
@@ -53,9 +63,13 @@ protected:
     void paintEvent (QPaintEvent *);
 
 protected slots:
-    void mouseMoveEvent(QMouseEvent *ev);
+    void mouseMoveEvent(QMouseEvent *e);
     void mousePressEvent(QMouseEvent *ev);
-    void temporizador();
+    void mataFilipeta();
+    void shutdownComp();
+    void rebootComp();
+    void closeapp();
+
 
 private slots:
      void showConfig();

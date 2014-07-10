@@ -1,0 +1,17 @@
+<RCC>
+    <qresource prefix="/">
+        <file>imagens/botao_plastico_apertado.png</file>
+        <file>imagens/botao_plastico_hover.png</file>
+        <file>imagens/botao_plastico_solto2.png</file>
+        <file>imagens/reboot.png</file>
+        <file>imagens/desligar.png</file>
+        <file>imagens/config.png</file>
+        <file>imagens/botao_plastico_quad_apertado.png</file>
+        <file>imagens/botao_plastico_quad_hover.png</file>
+        <file>imagens/botao_plastico_quad_solto.png</file>
+        <file>imagens/btn_default_power_down.png</file>
+        <file>imagens/btn_default_exit.png</file>
+        <file>imagens/btn_default_reboot.png</file>
+        <file>imagens/btn_default_setup.png</file>
+    </qresource>
+</RCC>

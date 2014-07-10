@@ -1,0 +1,371 @@
+#include "favoritos.h"
+#include "ui_favoritos.h"
+#include <QBoxLayout>
+#include <QSettings>
+#include <QDir>
+#include <QDebug>
+
+favoritos::favoritos(QWidget *parent) :
+    QWidget(parent),
+    ui(new Ui::favoritos)
+{
+    ui->setupUi(this);
+
+    setWindowFlags(Qt::WindowStaysOnTopHint | Qt::FramelessWindowHint);
+    setAttribute(Qt::WA_TranslucentBackground);
+
+    ui->pb1->setTipo(jbotao::retangulo);
+    ui->pb2->setTipo(jbotao::retangulo);
+    ui->pb3->setTipo(jbotao::retangulo);
+    ui->pb4->setTipo(jbotao::retangulo);
+    ui->pb5->setTipo(jbotao::retangulo);
+    ui->pb6->setTipo(jbotao::retangulo);
+    ui->pb7->setTipo(jbotao::retangulo);
+    ui->pb8->setTipo(jbotao::retangulo);
+    ui->pb9->setTipo(jbotao::retangulo);
+    ui->pb10->setTipo(jbotao::retangulo);
+    ui->pb11->setTipo(jbotao::retangulo);
+    ui->pb12->setTipo(jbotao::retangulo);
+    ui->pb13->setTipo(jbotao::retangulo);
+    ui->pb14->setTipo(jbotao::retangulo);
+    ui->pb15->setTipo(jbotao::retangulo);
+    ui->pb16->setTipo(jbotao::retangulo);
+
+
+//    layoutB->setAlignment(Qt::AlignTop);
+
+    show();
+
+    leApps();
+
+}
+
+favoritos::~favoritos()
+{
+    delete ui;
+}
+
+void favoritos::leApps()
+{
+    QString xdgDataDirs;
+    char *xdgDataDirsEnv = getenv("XDG_DATA_DIRS");
+
+    if(xdgDataDirsEnv != NULL)
+    {
+        xdgDataDirs = xdgDataDirsEnv;
+//        qDebug() <<  xdgDataDirs;
+    }
+    else
+    {
+        xdgDataDirs = "/usr/local/share/:/usr/share/";
+        xdgDataDirs = "/usr/share/";
+//        qDebug() << "/" ;
+    }
+
+    QStringList dirs = xdgDataDirs.split(':');
+
+    bool paraLista = true;
+
+    QList<QString> *listFavApps;
+
+    listFavApps->append("qtcreator.desktop");
+    listFavApps->append("libreoffice-writer.desktop");
+    listFavApps->append("libreoffice-calc.desktop");
+    listFavApps->append("libreoffice-impress.desktop");
+    listFavApps->append("libreoffice-draw.desktop");
+    listFavApps->append("gimp.desktop");
+    listFavApps->append("inkscape.desktop");
+    listFavApps->append("xsane.desktop");
+    listFavApps->append("google-chrome.desktop");
+    listFavApps->append("firefox.desktop");
+    listFavApps->append("brasero.desktop");
+    listFavApps->append("chromium-browser.desktop");
+
+
+//    qDebug() << dirs;
+
+    foreach(const QString& path, dirs)
+    {
+        QDir dir(path);
+        if(dir.exists())
+           paraLista = achaFile(QDir(dir.absoluteFilePath("applications")), listFavApps);
+           if(!paraLista)
+              break;
+//            qDebug() << QDir(dir.absoluteFilePath("applications"));
+    }
+
+    if(!paraLista)
+       qDebug() << "brecou";
+
+}
+
+bool favoritos::achaFile(const QDir& dir, QList<QString> *list)
+{
+
+//	m_watcher->addPath(dir.canonicalPath());
+
+    QFileInfoList fileInfos = dir.entryInfoList(QStringList("*.desktop"), QDir::NoDotAndDotDot | QDir::AllDirs | QDir::Files);
+
+    foreach(const QFileInfo& fileInfo, fileInfos)
+    {
+        if(!fileInfo.isDir())
+        {
+           for (int i = 0; i < list->size(); ++i)
+           {
+                if (list->at(i) == fileInfo.fileName())
+                {
+                    leFile(fileInfo.filePath());
+//                    qDebug() << "Removendo item: " << list[i] << "Tamanho agora: "  << list->size();
+                    list->removeAt(i);
+                    break;
+                }
+           }
+        }
+    }
+
+    if(list->size() == 0)
+    {
+//       qDebug() << listFavApps.size();
+       return false;
+    }
+    else
+    {
+//       qDebug() << listFavApps.size();
+       if(list->size() == 1)
+          qDebug() << list[0];
+
+       return true;
+    }
+
+
+/*
+    QFileInfoList fileInfos = dir.entryInfoList(QStringList("*.desktop"), QDir::NoDotAndDotDot | QDir::AllDirs | QDir::Files);
+    foreach(const QFileInfo& fileInfo, fileInfos)
+    {
+        if(!fileInfo.isDir())
+        {
+           for (int i = 0; i < listFavApps.size(); ++i)
+           {
+                if (listFavApps.at(i) == fileInfo.fileName())
+                {
+                    leFile(fileInfo.filePath());
+                    listFavApps.removeAt(i);
+                }
+           }
+        }
+    }
+*/
+}
+
+void favoritos::leFile(QString path)
+{
+
+//    qDebug() << "Arquivo: " << path;
+
+    QString nome, comando, nomeIcone;
+    QPixmap iconeapp;
+    QIcon pegaIcon;
+
+    QSettings s(path, QSettings::IniFormat);
+    s.beginGroup("Desktop Entry");
+
+    nome = s.value("name").toString();
+    comando = s.value("exec").toString();
+    nomeIcone = s.value("icon").toString();
+
+    if (QIcon::hasThemeIcon(nomeIcone))
+    {
+        pegaIcon = QIcon::fromTheme(nomeIcone);
+        iconeapp = pegaIcon.pixmap(QSize(32,32));
+    }
+    else
+    {
+        if(!nomeIcone.contains("/"))
+           nomeIcone = "/usr/share/pixmaps/"+nomeIcone;
+
+        if(nomeIcone.right(3) != "png" && nomeIcone.right(3) != "xpm")
+        {
+           if(!QFile(nomeIcone+".png").exists())
+           {
+              if(!QFile(nomeIcone+".xpm").exists())
+                 nomeIcone = "";
+              else
+                 iconeapp.load(nomeIcone+".xpm");
+           }
+           else
+              iconeapp.load(nomeIcone+".png");
+        }
+    }
+
+    if(nomeIcone != "")
+    {
+       iconeapp = iconeapp.scaled(32,32, Qt::KeepAspectRatio, Qt::FastTransformation);
+    }
+    else
+    {
+        pegaIcon = QIcon::fromTheme("application-x-executable");
+        iconeapp = pegaIcon.pixmap(QSize(32,32));
+    }
+
+    geraBotoes(nome, comando, iconeapp);
+
+    return;
+}
+/*
+QImage favoritos::loadIcon(const QString& themeName, const QString& iconName, int size)
+{
+    QImage result = loadIconFromTheme(themeName, iconName, size);
+
+    if(result.isNull())
+        result.load("/usr/share/pixmaps/" + iconName);
+
+    if(result.isNull())
+        result.load(iconName);
+
+    if(!result.isNull() && (result.width() != size || result.height() != size))
+        result = result.scaled(size, size, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+
+    return result;
+}
+
+QImage IconLoader::loadIconFromTheme(const QString& themeName, const QString& iconName, int size)
+{
+    if(!m_iconThemes.contains(themeName))
+    {
+        m_iconThemesMutex.lock();
+        m_iconThemes[themeName].init(themeName);
+        m_iconThemesMutex.unlock();
+    }
+
+    QImage result = m_iconThemes[themeName].loadIcon(iconName, size);
+
+    if(result.isNull() && themeName != "hicolor")
+    {
+        QStringList inheritedThemes = m_iconThemes[themeName].inheritedThemes();
+        if(inheritedThemes.empty())
+            inheritedThemes.append("hicolor");
+        foreach(const QString& inheritedTheme, inheritedThemes)
+        {
+            result = loadIconFromTheme(inheritedTheme, iconName, size);
+            if(!result.isNull())
+                break;
+        }
+    }
+
+    return result;
+}
+*/
+bool favoritos::buscaIcone(QString nome)
+{/*
+    QFile nome;
+
+    if(nome.exists())
+       return true;
+    else
+       return false;
+*/
+}
+
+void favoritos::geraBotoes(QString nome, QString comando, QPixmap icone)
+{
+
+    numBotao++;
+
+//    qDebug() << "Numbotão: " << numBotao;
+//    qDebug() << "Comando: " << comando;
+
+    if(numBotao == 1)
+    {
+       ui->pb1->setIcon(icone);
+       ui->pb1->setToolTip(comando);
+    }
+    else if(numBotao == 2)
+    {
+        ui->pb2->setIcon(icone);
+        ui->pb2->setToolTip(comando);
+    }
+    else if(numBotao == 3)
+    {
+        ui->pb3->setIcon(icone);
+        ui->pb3->setToolTip(comando);
+    }
+    else if(numBotao == 4)
+    {
+        ui->pb4->setIcon(icone);
+        ui->pb4->setToolTip(comando);
+    }
+    else if(numBotao == 5)
+    {
+        ui->pb5->setIcon(icone);
+        ui->pb5->setToolTip(comando);
+    }
+    else if(numBotao == 6)
+    {
+        ui->pb6->setIcon(icone);
+        ui->pb6->setToolTip(comando);
+    }
+    else if(numBotao == 7)
+    {
+        ui->pb7->setIcon(icone);
+        ui->pb7->setToolTip(comando);
+    }
+    else if(numBotao == 8)
+    {
+        ui->pb8->setIcon(icone);
+        ui->pb8->setToolTip(comando);
+    }
+    else if(numBotao == 9)
+    {
+        ui->pb9->setIcon(icone);
+        ui->pb9->setToolTip(comando);
+    }
+    else if(numBotao == 10)
+    {
+        ui->pb10->setIcon(icone);
+        ui->pb10->setToolTip(comando);
+    }
+    else if(numBotao == 11)
+    {
+        ui->pb11->setIcon(icone);
+        ui->pb11->setToolTip(comando);
+    }
+    else if(numBotao == 12)
+    {
+        ui->pb12->setIcon(icone);
+        ui->pb12->setToolTip(comando);
+    }
+    else if(numBotao == 13)
+    {
+        ui->pb13->setIcon(icone);
+        ui->pb13->setToolTip(comando);
+    }
+    else if(numBotao == 14)
+    {
+        ui->pb14->setIcon(icone);
+        ui->pb14->setToolTip(comando);
+    }
+    else if(numBotao == 15)
+    {
+        ui->pb15->setIcon(icone);
+        ui->pb15->setToolTip(comando);
+    }
+    else if(numBotao == 16)
+    {
+        ui->pb16->setIcon(icone);
+        ui->pb16->setToolTip(comando);
+    }
+
+
+/*
+    btn->setTipo(jbotao::retangulo);
+
+
+    btn->setIcon(pixmap1);
+
+    QVBoxLayout *layoutB = new QVBoxLayout(this);
+
+    layoutB->addWidget(btn);
+*/
+
+}
+

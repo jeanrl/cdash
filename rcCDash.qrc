@@ -11,5 +11,11 @@
         <file>imagens/logo3.png</file>
         <file>imagens/claudia2.png</file>
         <file>imagens/sair.png</file>
+        <file>imagens/filipeta_fundo.png</file>
+        <file>imagens/filipeta_azul_60.png</file>
+        <file>imagens/ok_vidro.png</file>
+        <file>imagens/tooltip_fundo.png</file>
+        <file>imagens/sair_cdash.png</file>
+        <file>imagens/draganddrop.png</file>
     </qresource>
 </RCC>

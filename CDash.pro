@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui dbus
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets multimedia
 
@@ -22,22 +22,32 @@ SOURCES += main.cpp\
     configdash.cpp \
     cronometro/widget.cpp \
     cronometro/jcronometro.cpp \
-    cronometro/configcron.cpp
+    cronometro/configcron.cpp \
+    filipeta.cpp \
+    jbotao.cpp \
+    favoritos/favoritos.cpp \
+    jtooltip.cpp
 
 HEADERS  += cdash.h \
     relogio/wrelogio.h \
     configdash.h \
     cronometro/widget.h \
     cronometro/jcronometro.h \
-    cronometro/configcron.h
+    cronometro/configcron.h \
+    filipeta.h \
+    jbotao.h \
+    favoritos/favoritos.h \
+    jtooltip.h
 
 RESOURCES += \
     relogio/rscRelogio.qrc \
     rcCDash.qrc \
-    cronometro.qrc
+    cronometro.qrc \
+    rcJBotao.qrc
 
 FORMS += \
     configdash.ui \
     cronometro/widget.ui \
-    cronometro/configcron.ui
+    cronometro/configcron.ui \
+    favoritos/favoritos.ui
 
