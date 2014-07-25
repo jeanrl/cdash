@@ -189,6 +189,8 @@ void CDash::createCDWindow()
 
     favoritos *wfav = new favoritos(this);
 
+    weather *weat = new weather(this);
+
     QVBoxLayout *layout = new QVBoxLayout(this);
 
     layout->setAlignment(Qt::AlignTop);
@@ -196,6 +198,8 @@ void CDash::createCDWindow()
     layout->addWidget(relogio, 1, 0);
     layout->addWidget(wcron);
     layout->addWidget(wfav);
+    layout->addWidget(weat);
+
 
    ulong struts[12] = {};
    struts[0] = 250;

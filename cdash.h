@@ -29,6 +29,7 @@
 #include "relogio/wrelogio.h"
 #include "cronometro/widget.h"
 #include "favoritos/favoritos.h"
+#include "weather/weather.h"
 
 namespace Ui {
 class Widget;
@@ -69,7 +70,6 @@ protected slots:
     void shutdownComp();
     void rebootComp();
     void closeapp();
-
 
 private slots:
      void showConfig();

@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui dbus
+QT       += core gui dbus network script
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets multimedia
 
@@ -15,6 +15,7 @@ TRANSLATIONS = languages/CDash_en.ts \
                languages/CDash_es.ts
 
 LIBS += -L/usr/lib64 -lX11 -lXdamage
+LIBS += -L/usr/local/lib -lqjson
 
 SOURCES += main.cpp\
         cdash.cpp \
@@ -26,7 +27,9 @@ SOURCES += main.cpp\
     filipeta.cpp \
     jbotao.cpp \
     favoritos/favoritos.cpp \
-    jtooltip.cpp
+    jtooltip.cpp \
+    weather/weather.cpp \
+    weather/configweat.cpp
 
 HEADERS  += cdash.h \
     relogio/wrelogio.h \
@@ -37,17 +40,22 @@ HEADERS  += cdash.h \
     filipeta.h \
     jbotao.h \
     favoritos/favoritos.h \
-    jtooltip.h
+    jtooltip.h \
+    weather/weather.h \
+    weather/configweat.h
 
 RESOURCES += \
     relogio/rscRelogio.qrc \
     rcCDash.qrc \
     cronometro.qrc \
-    rcJBotao.qrc
+    rcJBotao.qrc \
+    weather.qrc
 
 FORMS += \
     configdash.ui \
     cronometro/widget.ui \
     cronometro/configcron.ui \
-    favoritos/favoritos.ui
+    favoritos/favoritos.ui \
+    weather/weather.ui \
+    weather/configweat.ui
 

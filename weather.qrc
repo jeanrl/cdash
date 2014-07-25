@@ -1,0 +1,24 @@
+<RCC>
+    <qresource prefix="/">
+        <file>weather/imagens/Weather_Symbols_clip_art_hight.png</file>
+        <file>weather/imagens/weather.png</file>
+        <file>weather/imagens/ensolarado.png</file>
+        <file>weather/imagens/chuvas.png</file>
+        <file>weather/imagens/chuva_com_neve.png</file>
+        <file>weather/imagens/granizo.png</file>
+        <file>weather/imagens/nebuloso_dia.png</file>
+        <file>weather/imagens/nebuloso_noite.png</file>
+        <file>weather/imagens/neve.png</file>
+        <file>weather/imagens/nevoeiro.png</file>
+        <file>weather/imagens/nublado_dia.png</file>
+        <file>weather/imagens/nublado_noite.png</file>
+        <file>weather/imagens/parcial_enluarado.png</file>
+        <file>weather/imagens/parcial_ensolarado.png</file>
+        <file>weather/imagens/parcial_nublado_chuvas_dia.png</file>
+        <file>weather/imagens/tempestade.png</file>
+        <file>weather/imagens/totalmente_nublado.png</file>
+        <file>weather/imagens/enluarado.png</file>
+        <file>weather/imagens/parcial_nublado_chuvas_noite.png</file>
+        <file>weather/imagens/loading.gif</file>
+    </qresource>
+</RCC>

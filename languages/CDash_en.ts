@@ -20,14 +20,34 @@
         <translation type="obsolete">reject</translation>
     </message>
     <message>
-        <location filename="../cdash.cpp" line="97"/>
+        <location filename="../cdash.cpp" line="115"/>
         <source>Deseja Realmente Fechar o ClÃ¡udia Dash ?</source>
         <translation>Really close Claudia Dash?</translation>
     </message>
     <message>
-        <location filename="../cdash.cpp" line="98"/>
+        <location filename="../cdash.cpp" line="116"/>
         <source>Pense bem, estamos aqui para lhe ajudar :(</source>
         <translation>Think about it, we are here to help you :(</translation>
+    </message>
+    <message>
+        <location filename="../cdash.cpp" line="321"/>
+        <source>Deseja Realmente Desligar o Computador?</source>
+        <translation>Really want to turn off the computer?</translation>
+    </message>
+    <message>
+        <location filename="../cdash.cpp" line="322"/>
+        <source>Esse procedimento irÃ¡ Desligar a mÃ¡quina</source>
+        <translation>This will turn off your computer</translation>
+    </message>
+    <message>
+        <location filename="../cdash.cpp" line="349"/>
+        <source>Deseja Realmente Reiniciar o Computador?</source>
+        <translation>Do you really want to restart the computer?</translation>
+    </message>
+    <message>
+        <location filename="../cdash.cpp" line="350"/>
+        <source>Esse procedimento reinicia a mÃ¡quina</source>
+        <translation>This will restart your computer</translation>
     </message>
 </context>
 <context>
@@ -548,37 +568,233 @@
         <translation>Close</translation>
     </message>
     <message>
-        <location filename="../cronometro/configcron.cpp" line="71"/>
+        <location filename="../cronometro/configcron.cpp" line="90"/>
         <source>Abrir Arquivo de Ãudio</source>
         <translation>Open Audio File</translation>
     </message>
     <message>
-        <location filename="../cronometro/configcron.cpp" line="71"/>
+        <location filename="../cronometro/configcron.cpp" line="90"/>
         <source>Audio Files (*.mp3 *.wav *.ogg)</source>
         <translation>Audio Files</translation>
     </message>
 </context>
 <context>
+    <name>configweat</name>
+    <message>
+        <location filename="../weather/configweat.ui" line="20"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../weather/configweat.ui" line="30"/>
+        <source>Busca Cidade (Ex.: São Paulo, BR)</source>
+        <translation>Search the city (Ex.: New York, US)</translation>
+    </message>
+    <message>
+        <location filename="../weather/configweat.ui" line="43"/>
+        <source>Buscar</source>
+        <translation>Search</translation>
+    </message>
+    <message>
+        <location filename="../weather/configweat.ui" line="66"/>
+        <source>Cidade e as 2 letras que representam seu país</source>
+        <translation>City and 2 letters representing your country</translation>
+    </message>
+    <message>
+        <location filename="../weather/configweat.ui" line="84"/>
+        <source>Cidade</source>
+        <translation>City</translation>
+    </message>
+    <message>
+        <location filename="../weather/configweat.ui" line="113"/>
+        <source>Cidade:</source>
+        <translation>City</translation>
+    </message>
+    <message>
+        <location filename="../weather/configweat.ui" line="144"/>
+        <source>Estado:</source>
+        <translation>State</translation>
+    </message>
+    <message>
+        <location filename="../weather/configweat.ui" line="158"/>
+        <source>País:</source>
+        <translation>Country</translation>
+    </message>
+    <message>
+        <location filename="../weather/configweat.ui" line="176"/>
+        <source>Latitude:</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../weather/configweat.ui" line="190"/>
+        <source>Longitude:</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../weather/configweat.ui" line="233"/>
+        <source>Unidade</source>
+        <translation>Unit</translation>
+    </message>
+    <message>
+        <location filename="../weather/configweat.ui" line="245"/>
+        <source>Celsius (C)</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../weather/configweat.ui" line="255"/>
+        <source>Fahrenheit (F)</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../weather/configweat.ui" line="265"/>
+        <source>Atualizações</source>
+        <translation>Updates</translation>
+    </message>
+    <message>
+        <location filename="../weather/configweat.ui" line="277"/>
+        <source>Normais</source>
+        <translation>Normal</translation>
+    </message>
+    <message>
+        <location filename="../weather/configweat.ui" line="287"/>
+        <source>Só 1 vez</source>
+        <translation>1 time</translation>
+    </message>
+    <message>
+        <location filename="../weather/configweat.ui" line="302"/>
+        <source>Cancelar</source>
+        <translation>Cancel</translation>
+    </message>
+    <message>
+        <location filename="../weather/configweat.ui" line="313"/>
+        <source>Ok</source>
+        <translation>Ok</translation>
+    </message>
+    <message>
+        <location filename="../weather/configweat.cpp" line="56"/>
+        <source>Ocorreu um erro inesperado</source>
+        <translation>An unexpected error occurred</translation>
+    </message>
+    <message>
+        <location filename="../weather/configweat.cpp" line="57"/>
+        <source>e por isso nÃ£o conseguimos captar os dados, tente mais tarde.</source>
+        <translation>and therefore unable to capture the data, try again later.</translation>
+    </message>
+</context>
+<context>
+    <name>favoritos</name>
+    <message>
+        <location filename="../favoritos/favoritos.ui" line="26"/>
+        <source>favoritos</source>
+        <translation>Favorites</translation>
+    </message>
+</context>
+<context>
     <name>wcronometro</name>
     <message>
-        <location filename="../cronometro/widget.cpp" line="143"/>
+        <location filename="../cronometro/widget.cpp" line="162"/>
         <source>  ConfiguraÃ§Ã£o</source>
         <translation>Setup</translation>
     </message>
     <message>
-        <location filename="../cronometro/widget.cpp" line="146"/>
+        <location filename="../cronometro/widget.cpp" line="165"/>
         <source>  Dispara</source>
         <translation>Play</translation>
     </message>
     <message>
-        <location filename="../cronometro/widget.cpp" line="150"/>
+        <location filename="../cronometro/widget.cpp" line="169"/>
         <source>  Pausa</source>
         <translation>Pause</translation>
     </message>
     <message>
-        <location filename="../cronometro/widget.cpp" line="154"/>
+        <location filename="../cronometro/widget.cpp" line="173"/>
         <source>  Reset</source>
         <translation>Reset</translation>
+    </message>
+</context>
+<context>
+    <name>weather</name>
+    <message>
+        <location filename="../weather/weather.ui" line="26"/>
+        <source>Form</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../weather/weather.ui" line="85"/>
+        <location filename="../weather/weather.ui" line="117"/>
+        <location filename="../weather/weather.ui" line="149"/>
+        <source>Text</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../weather/weather.cpp" line="137"/>
+        <source>Ocorreu um erro inesperado</source>
+        <translation>An unexpected error occurred</translation>
+    </message>
+    <message>
+        <location filename="../weather/weather.cpp" line="138"/>
+        <source>e por isso nÃ£o conseguimos captar os dados, tente mais tarde.</source>
+        <translation>and therefore unable to capture the data, try again later.</translation>
+    </message>
+    <message>
+        <location filename="../weather/weather.cpp" line="221"/>
+        <source>Ensolarado</source>
+        <translation>Sunny</translation>
+    </message>
+    <message>
+        <location filename="../weather/weather.cpp" line="226"/>
+        <source>CÃ©u Claro</source>
+        <translation>Clear</translation>
+    </message>
+    <message>
+        <location filename="../weather/weather.cpp" line="239"/>
+        <source>Algumas Nuvens</source>
+        <translation>Mostly Sunny</translation>
+    </message>
+    <message>
+        <location filename="../weather/weather.cpp" line="251"/>
+        <source>Nebuloso</source>
+        <translation>Cloudy</translation>
+    </message>
+    <message>
+        <location filename="../weather/weather.cpp" line="263"/>
+        <source>Nublado</source>
+        <translation>Hazy Sunshine</translation>
+    </message>
+    <message>
+        <location filename="../weather/weather.cpp" line="268"/>
+        <source>Nuvens Pesadas</source>
+        <translation>Dreary (Overcast)</translation>
+    </message>
+    <message>
+        <location filename="../weather/weather.cpp" line="273"/>
+        <source>Chuvas</source>
+        <translation>Rain</translation>
+    </message>
+    <message>
+        <location filename="../weather/weather.cpp" line="285"/>
+        <source>Parcialmente Nublado com Chuvas</source>
+        <translation>Partly Cloudy w/ Showers</translation>
+    </message>
+    <message>
+        <location filename="../weather/weather.cpp" line="290"/>
+        <source>Tempestade</source>
+        <translation>Storms</translation>
+    </message>
+    <message>
+        <location filename="../weather/weather.cpp" line="295"/>
+        <source>Neve</source>
+        <translation>Snow</translation>
+    </message>
+    <message>
+        <location filename="../weather/weather.cpp" line="300"/>
+        <source>Granizo</source>
+        <translation>Ice</translation>
+    </message>
+    <message>
+        <location filename="../weather/weather.cpp" line="305"/>
+        <source>Chuva e Neve</source>
+        <translation>Sleet</translation>
     </message>
 </context>
 <context>

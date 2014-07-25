@@ -17,5 +17,6 @@
         <file>imagens/tooltip_fundo.png</file>
         <file>imagens/sair_cdash.png</file>
         <file>imagens/draganddrop.png</file>
+        <file>imagens/procurar.png</file>
     </qresource>
 </RCC>
