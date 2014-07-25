@@ -15,6 +15,11 @@ Have a Dash not only beautiful but also functional on the desktop and above all 
 www.jeanrl.com.br/cdash
 
 
+##Release Alpha Version 0.02
+####07/24/2014
+
+add Weather
+
 ##Release Alpha Version 0.01
 ####07/10/2014
 
