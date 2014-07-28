@@ -14,6 +14,12 @@ Have a Dash not only beautiful but also functional on the desktop and above all 
 ## Site
 www.jeanrl.com.br/cdash
 
+##Release Alpha Version 0.03
+####07/28/2014
+
+Now the weather forecast updates itself throughout the day every time. 
+
+Read the file Readme to install or update.
 
 ##Release Alpha Version 0.02
 ####07/24/2014
