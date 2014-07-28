@@ -29,11 +29,30 @@ weather::weather(QWidget *parent) :
     chaveCidade = settings.value("chave").toString();
     nomeCidade = settings.value("cidade").toString();
     unidade = settings.value("unidade").toString();
+    atualiza = settings.value("update").toString();
     settings.endGroup();
 
     if(chaveCidade != "")
     {
        consultaWeather(chaveCidade);
+
+       if(atualiza == "S")
+       {
+          if(!tmAtualiza->isActive())
+          {
+             tmAtualiza = new QTimer(this);
+             connect(tmAtualiza, SIGNAL(timeout()), this, SLOT(autWeather()));
+             tmAtualiza->start(3600000);
+          }
+       }
+       else if(atualiza == "N")
+       {
+          if(tmAtualiza->isActive())
+          {
+             tmAtualiza->disconnect(this);
+             tmAtualiza->stop();
+          }
+       }
     }
 
 }
@@ -88,8 +107,13 @@ void weather::showConfig()
        settings.setValue("cidade", nomeCidade);
        settings.setValue("unidade", unidade);
        settings.setValue("update", atualiza);
+       if(atualiza == "S")
+       {
+          tmAtualiza = new QTimer(this);
+          connect(tmAtualiza, SIGNAL(timeout()), this, SLOT(autWeather()));
+          tmAtualiza->start(3600000);
+       }
     }
-
 }
 
 void weather::consultaWeather(QString chaveCidade)
@@ -169,6 +193,12 @@ void weather::desapearBackground()
     ui->limagem->setVisible(false);
 }
 
+void weather::autWeather()
+{
+    consultaWeather(chaveCidade);
+    mostraTemp();
+}
+
 void weather::mostraTemp()
 {
 
@@ -183,7 +213,7 @@ void weather::mostraTemp()
 
     animation->setDuration(1400);
     animation->setStartValue(QPoint(-200, (height())));
-    animation->setEndValue(QPoint(25,(height() / 2)-200));
+    animation->setEndValue(QPoint(25,(height() / 2)-150));
 
     animation->start();
 

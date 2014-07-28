@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QNetworkReply>
+#include <QTimer>
 #include "configweat.h"
 
 namespace Ui {
@@ -26,11 +27,13 @@ public:
 
 private:
     Ui::weather *ui;
+    QTimer *tmAtualiza;
 
 private slots:
      void showConfig();
      void parseJson(QNetworkReply *Reply);
      void desapearBackground();
+     void autWeather();
 
 protected slots:
     void mousePressEvent(QMouseEvent *ev);

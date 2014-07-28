@@ -21,6 +21,7 @@ public:
 private:
     Ui::configweat *ui;
 
+
 private slots:
     void buscaCidade();
     void parseCidade(QNetworkReply *Reply);
